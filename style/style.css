@@ -1,0 +1,126 @@
+@keyframes movement{
+    25%{
+        transform: translate(400%, 0);
+        background-color: cornflowerblue;
+    }
+    50%{
+        transform: translate(400%, 400%);
+        background-color: deeppink;
+    }
+    75%{
+        transform: translate(0, 400%);
+        background-color: blanchedalmond;
+    }
+}
+
+@keyframes rotation {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+    25%{
+        background-color: cornflowerblue;
+    }
+    50%{
+        background-color: deeppink;
+    }
+    75%{
+        background-color: blanchedalmond;
+    }
+}
+
+@keyframes scaling {
+    25%{
+        transform: scaleX(5);
+        background-color: cornflowerblue;
+    }
+    50%{
+        transform: scale(5);
+        background-color: deeppink;
+    }
+    75%{
+        transform: scaleY(5);
+        background-color: blanchedalmond;
+    }
+}
+
+@keyframes skewing {
+    0%{
+        transform: skewY(45deg);
+    }
+    25%{
+        transform: skewX(-45deg);
+        background-color: cornflowerblue;
+    }
+    50%{
+        transform: skewY(45deg);
+        background-color: deeppink;
+    }
+    75%{
+        transform: skewX(-45deg);
+        background-color: blanchedalmond;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+
+.cell {
+    border: 4px solid black;
+    width: 250px;
+    height: 250px;
+    margin: 10px;
+}
+
+.cell.-centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.object {
+    background-color: violet;
+    width: 20%;
+    height: 20%;
+    transition: all .1s;
+}
+
+.object.-first {
+    animation: 4s ease-in 1s infinite normal forwards running movement;
+}
+
+.object.-second {
+    animation: 4s ease-in-out 1s infinite normal forwards running rotation;
+}
+
+.object.-third {
+    animation: 4s ease-in-out 1s infinite normal forwards running scaling;
+}
+
+.object.-fourth {
+    transform: skewY(45deg);
+    animation: 4s ease-in-out 1s infinite normal forwards running skewing;
+    transition: all .1s;
+}
+
+.object.-fifth {
+    transition: all 5s;
+}
+
+.object.-fifth:hover {
+    transform: matrix(4, 0, 0, 4, 50, -50);
+    background-color: deeppink;
+}
